@@ -10,10 +10,10 @@
 // ─────────────────────────────────────────────────────────────────────────
 'use strict';
 
-var NAV_H = 56;          // 底栏高度（dp）——对齐 FengYu2 的 NavBarHeight
-var NAV_RADIUS = 28;     // 圆角
-var NAV_SIDE = 26;       // 左右外边距
-var NAV_BOTTOM = 10;     // 距屏幕底部
+var NAV_H = 70;          // 底栏高度（dp）——完全对齐 FengYu2 的 NavBarHeight
+var NAV_RADIUS = 35;     // 圆角
+var NAV_SIDE = 48;       // 左右外边距
+var NAV_BOTTOM = 20;     // 距屏幕底部
 
 function navButton(t) {
   var color = t.active ? '@sakuraDeep' : '@ink';
@@ -21,14 +21,14 @@ function navButton(t) {
   return nf.ui.col(
     {
       al: 'center',
-      w: 56,
-      padt: 6,
+      w: 62,
+      padt: 9,
       tap: 'onNav',
       id: t.id
     },
-    nf.ui.icon(icon, { w: 21, c: color }),
-    nf.ui.spacer(3),
-    nf.ui.txt(t.label, { fs: 9.5, c: color, fw: t.active ? 600 : 400 })
+    nf.ui.icon(icon, { w: 25, c: color }),
+    nf.ui.spacer(4),
+    nf.ui.txt(t.label, { fs: 10, c: color, fw: t.active ? 600 : 400 })
   );
 }
 
@@ -36,6 +36,9 @@ function navBar(tabs) {
   if (!tabs || tabs.length === 0) { return nf.ui.spacer(0); }
   var items = [];
   for (var i = 0; i < tabs.length; i++) { items.push(navButton(tabs[i])); }
+  // 外层这层 Box 的 al:'bottom' 就是「把栏压到屏幕底部」的那一步，
+  // 对应 FengYu2 里的 .align(Alignment.BottomCenter)。
+  // 注意：它是**位置**，不是高度 —— 两者别搞混。
   return nf.ui.box(
     { fillw: 1, al: 'bottom', padb: NAV_BOTTOM, padl: NAV_SIDE, padr: NAV_SIDE },
     nf.ui.row(
@@ -44,9 +47,9 @@ function navBar(tabs) {
         h: NAV_H,
         bg: '@whisper',
         r: NAV_RADIUS,
-        elev: 6,
-        padl: 10,
-        padr: 10,
+        elev: 8,
+        padl: 24,
+        padr: 24,
         js: 'evenly',
         al: 'center'
       },

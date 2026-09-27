@@ -49,7 +49,7 @@ module.exports = {
         nf.ui.icon('back', { w: 22, c: '@ink', tap: 'onBack' }),
         nf.ui.title('主题与配色', { gr: 1 })
       ),
-      nf.ui.list({ fillw: 1, gr: 1, padh: 18, padb: 84 }, rows)
+      nf.ui.list({ fillw: 1, gr: 1, padh: 18, padb: 104 }, rows)
     );
   },
 
