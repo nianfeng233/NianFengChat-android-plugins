@@ -97,7 +97,7 @@ module.exports = {
       rows.length
         ? nf.ui.list(
             // padb 是给浮动底栏让位：内容不能钻到底栏下面
-            { fillw: 1, gr: 1, padb: 104, gap: 2, padh: 4 },
+            { fillw: 1, gr: 1, padb: 84, gap: 2, padh: 4 },
             rows
           )
         : nf.ui.empty('还没有会话')

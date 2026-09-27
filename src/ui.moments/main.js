@@ -60,7 +60,7 @@ module.exports = {
         nf.ui.title('朋友圈', { gr: 1 }),
         nf.ui.icon('camera', { w: 22, c: '@ink' })
       ),
-      nf.ui.list({ fillw: 1, gr: 1, padb: 104, padh: 14 }, cards)
+      nf.ui.list({ fillw: 1, gr: 1, padb: 84, padh: 14 }, cards)
     );
   },
 

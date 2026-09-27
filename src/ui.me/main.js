@@ -58,7 +58,7 @@ module.exports = {
       nf.ui.box({ fillw: 1, bg: '@whisper' }, profileCard(p)),
       nf.ui.spacer(10),
       nf.ui.col(
-        { fillw: 1, bg: '@whisper', r: 0, gr: 1, padb: 104 },
+        { fillw: 1, bg: '@whisper', r: 0, gr: 1, padb: 84 },
         nf.ui.list({ fillw: 1, gr: 1 }, rows)
       )
     );

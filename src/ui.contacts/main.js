@@ -100,7 +100,7 @@ module.exports = {
       ),
       tabRow(),
       list.length
-        ? nf.ui.list({ fillw: 1, gr: 1, padb: 104, padh: 4 }, blocks)
+        ? nf.ui.list({ fillw: 1, gr: 1, padb: 84, padh: 4 }, blocks)
         : nf.ui.empty('这个分栏里还没有人')
     );
   },

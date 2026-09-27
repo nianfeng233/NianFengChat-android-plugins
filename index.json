@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-09-27T10:52:57Z",
+  "generatedAt": "2026-09-27T11:09:14Z",
   "owner": "NianFengChat",
   "repo": "NianFengChat-android-plugins",
   "license": "Apache-2.0",
@@ -66,7 +66,7 @@
         ],
         "stages": []
       },
-      "sha256": "76e4153c6f4662adce7eda686bfd0687b2a062e60c3f65dfd20becce70dd145e",
+      "sha256": "b770321d85f69048bd10d38b95b21898e2a3d8010c14a0378dd3483bf488f99f",
       "size": 2615
     },
     {
@@ -177,8 +177,8 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "a49034aed9685019859ce558a80ba68d45cabd4b4909528625d9e45e37d457aa",
-      "size": 3565
+      "sha256": "1ffe79abcea7d004342baabd3375da664b5a7760a66c773336fa511dc023dac6",
+      "size": 3564
     },
     {
       "id": "ui.contacts",
@@ -206,8 +206,8 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "358e5f4387ae6f9500217012148932cf0e1112c6c1d7571ee8d5b1f11a16fc39",
-      "size": 3451
+      "sha256": "b51e5b94c4b716680671d988042343993cf9909b70fcbeb6a8c3e2ae0b4b5ba4",
+      "size": 3450
     },
     {
       "id": "ui.me",
@@ -235,8 +235,8 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "143b23fe5cf9cbb102271c0ae99982e985da47755ff79c39950bf0a22413db9f",
-      "size": 2477
+      "sha256": "44983e8b9807f119f9f6b6bb4d343df500bac346a4e6b95732de00dbda205c59",
+      "size": 2476
     },
     {
       "id": "ui.moments",
@@ -264,8 +264,8 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "3538037ea51ebd56526dae3ad6195c864dc40d6644a3afa14fd66dfd456e4594",
-      "size": 2569
+      "sha256": "8e52e61e2d3deb0897fdc21399128ce1711b47bb5f43e70411aaab217217c8c3",
+      "size": 2568
     },
     {
       "id": "ui.theme",
@@ -293,8 +293,8 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "148860326b951b9283e0dedbf49cba285023e80ce4237ae84ef384e530143595",
-      "size": 2051
+      "sha256": "f6452d42ed4e6ee31046e9776db25939e50a833a070422256846e1713bc9af24",
+      "size": 2050
     }
   ]
 }

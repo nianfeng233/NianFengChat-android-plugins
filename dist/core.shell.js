@@ -10,10 +10,10 @@
 // ─────────────────────────────────────────────────────────────────────────
 'use strict';
 
-var NAV_H = 70;          // 底栏高度（dp）——对齐 FengYu2 的 NavBarHeight
-var NAV_RADIUS = 35;     // 圆角
-var NAV_SIDE = 46;       // 左右外边距
-var NAV_BOTTOM = 18;     // 距屏幕底部
+var NAV_H = 56;          // 底栏高度（dp）——对齐 FengYu2 的 NavBarHeight
+var NAV_RADIUS = 28;     // 圆角
+var NAV_SIDE = 26;       // 左右外边距
+var NAV_BOTTOM = 10;     // 距屏幕底部
 
 function navButton(t) {
   var color = t.active ? '@sakuraDeep' : '@ink';
@@ -21,14 +21,14 @@ function navButton(t) {
   return nf.ui.col(
     {
       al: 'center',
-      w: 62,
-      padt: 9,
+      w: 56,
+      padt: 6,
       tap: 'onNav',
       id: t.id
     },
-    nf.ui.icon(icon, { w: 25, c: color }),
-    nf.ui.spacer(4),
-    nf.ui.txt(t.label, { fs: 10, c: color, fw: t.active ? 600 : 400 })
+    nf.ui.icon(icon, { w: 21, c: color }),
+    nf.ui.spacer(3),
+    nf.ui.txt(t.label, { fs: 9.5, c: color, fw: t.active ? 600 : 400 })
   );
 }
 
@@ -44,9 +44,9 @@ function navBar(tabs) {
         h: NAV_H,
         bg: '@whisper',
         r: NAV_RADIUS,
-        elev: 10,
-        padl: 16,
-        padr: 16,
+        elev: 6,
+        padl: 10,
+        padr: 10,
         js: 'evenly',
         al: 'center'
       },
