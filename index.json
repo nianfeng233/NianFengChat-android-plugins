@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-09-27T10:04:16Z",
+  "generatedAt": "2026-09-27T10:37:47Z",
   "owner": "NianFengChat",
   "repo": "NianFengChat-android-plugins",
   "license": "Apache-2.0",
@@ -68,6 +68,29 @@
       },
       "sha256": "76e4153c6f4662adce7eda686bfd0687b2a062e60c3f65dfd20becce70dd145e",
       "size": 2615
+    },
+    {
+      "id": "feat.demo",
+      "name": "演示数据",
+      "version": "0.1.0",
+      "versionCode": 1,
+      "kind": "feat",
+      "entry": "main.js",
+      "apiVersion": 1,
+      "description": "启动时把演示内容（会话/联系人/朋友圈/资料）注入宿主数据层。基座本身不含任何内容，你看到的每一条数据都来自这里。",
+      "author": "NianFengChat",
+      "activation": [
+        "startup"
+      ],
+      "deps": [],
+      "permissions": [],
+      "contributes": {
+        "views": [],
+        "navTabs": [],
+        "stages": []
+      },
+      "sha256": "f941a46de3890a08013b5956f95ceecb727adc1c433aeaf11f39bab0ba9bdae4",
+      "size": 4968
     },
     {
       "id": "feat.echo",

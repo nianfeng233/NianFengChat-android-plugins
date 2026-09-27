@@ -1,0 +1,21 @@
+{
+  "id": "feat.demo",
+  "name": "演示数据",
+  "version": "0.1.0",
+  "versionCode": 1,
+  "kind": "feat",
+  "entry": "main.js",
+  "apiVersion": 1,
+  "description": "启动时把演示内容（会话/联系人/朋友圈/资料）注入宿主数据层。基座本身不含任何内容，你看到的每一条数据都来自这里。",
+  "author": "NianFengChat",
+  "activation": [
+    "startup"
+  ],
+  "deps": [],
+  "permissions": [],
+  "contributes": {
+    "views": [],
+    "navTabs": [],
+    "stages": []
+  }
+}
