@@ -1,0 +1,27 @@
+{
+  "id": "ui.chat",
+  "name": "聊天页",
+  "version": "0.1.0",
+  "versionCode": 1,
+  "kind": "ui",
+  "entry": "main.js",
+  "apiVersion": 1,
+  "description": "消息流与输入框。输入文本由宿主缓冲，发送只跨一次边界。",
+  "author": "NianFengChat",
+  "activation": [
+    "view:chat"
+  ],
+  "deps": [],
+  "permissions": [],
+  "contributes": {
+    "views": [
+      {
+        "id": "chat",
+        "title": "聊天",
+        "keepAlive": true
+      }
+    ],
+    "navTabs": [],
+    "stages": []
+  }
+}

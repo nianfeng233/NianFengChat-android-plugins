@@ -1,0 +1,27 @@
+{
+  "id": "ui.theme",
+  "name": "主题与配色",
+  "version": "0.1.0",
+  "versionCode": 1,
+  "kind": "ui",
+  "entry": "main.js",
+  "apiVersion": 1,
+  "description": "展示基座注入的设计令牌，验证插件取色体系是否生效。",
+  "author": "NianFengChat",
+  "activation": [
+    "view:theme"
+  ],
+  "deps": [],
+  "permissions": [],
+  "contributes": {
+    "views": [
+      {
+        "id": "theme",
+        "title": "主题与配色",
+        "keepAlive": false
+      }
+    ],
+    "navTabs": [],
+    "stages": []
+  }
+}

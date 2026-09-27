@@ -1,0 +1,27 @@
+{
+  "id": "ui.contacts",
+  "name": "通讯录",
+  "version": "0.1.0",
+  "versionCode": 1,
+  "kind": "ui",
+  "entry": "main.js",
+  "apiVersion": 1,
+  "description": "通讯录页：全部/群聊/私聊/星标 四个分栏 + 按首字母分组。",
+  "author": "NianFengChat",
+  "activation": [
+    "view:contacts"
+  ],
+  "deps": [],
+  "permissions": [],
+  "contributes": {
+    "views": [
+      {
+        "id": "contacts",
+        "title": "通讯录",
+        "keepAlive": true
+      }
+    ],
+    "navTabs": [],
+    "stages": []
+  }
+}

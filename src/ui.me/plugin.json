@@ -1,0 +1,27 @@
+{
+  "id": "ui.me",
+  "name": "我的",
+  "version": "0.1.0",
+  "versionCode": 1,
+  "kind": "ui",
+  "entry": "main.js",
+  "apiVersion": 1,
+  "description": "「我」页面：资料卡 + 设置入口。",
+  "author": "NianFengChat",
+  "activation": [
+    "view:me"
+  ],
+  "deps": [],
+  "permissions": [],
+  "contributes": {
+    "views": [
+      {
+        "id": "me",
+        "title": "我",
+        "keepAlive": true
+      }
+    ],
+    "navTabs": [],
+    "stages": []
+  }
+}

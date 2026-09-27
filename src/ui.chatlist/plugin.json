@@ -1,0 +1,27 @@
+{
+  "id": "ui.chatlist",
+  "name": "会话列表",
+  "version": "0.1.0",
+  "versionCode": 1,
+  "kind": "ui",
+  "entry": "main.js",
+  "apiVersion": 1,
+  "description": "会话列表页：头像、最后一条消息、未读角标、置顶态。点击进入聊天页。",
+  "author": "NianFengChat",
+  "activation": [
+    "view:chatlist"
+  ],
+  "deps": [],
+  "permissions": [],
+  "contributes": {
+    "views": [
+      {
+        "id": "chatlist",
+        "title": "会话",
+        "keepAlive": true
+      }
+    ],
+    "navTabs": [],
+    "stages": []
+  }
+}

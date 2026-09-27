@@ -1,0 +1,28 @@
+{
+  "id": "feat.echo",
+  "name": "回声回复",
+  "version": "0.1.0",
+  "versionCode": 1,
+  "kind": "feat",
+  "entry": "main.js",
+  "apiVersion": 1,
+  "description": "挂在消息发送管线的 reply 阶段，产出一条回复。用来演示「多个插件参与同一次发送」。",
+  "author": "NianFengChat",
+  "activation": [
+    "pipeline:message.send"
+  ],
+  "deps": [],
+  "permissions": [],
+  "contributes": {
+    "views": [],
+    "navTabs": [],
+    "stages": [
+      {
+        "pipeline": "message.send",
+        "phase": "reply",
+        "handler": "onReply",
+        "order": 100
+      }
+    ]
+  }
+}

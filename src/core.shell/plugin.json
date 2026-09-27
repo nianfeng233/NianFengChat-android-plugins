@@ -1,0 +1,61 @@
+{
+  "id": "core.shell",
+  "name": "应用外壳",
+  "version": "0.1.0",
+  "versionCode": 1,
+  "kind": "core",
+  "entry": "main.js",
+  "apiVersion": 1,
+  "description": "底部导航栏 + 页面插槽。FengYu2 chatscreen 的底栏规格：70dp 高、圆角 35、左右 48 外边距、底部 20 外边距、阴影 8。",
+  "author": "NianFengChat",
+  "activation": [
+    "startup",
+    "view:app.shell"
+  ],
+  "deps": [],
+  "permissions": [],
+  "contributes": {
+    "views": [
+      {
+        "id": "app.shell",
+        "title": "外壳",
+        "keepAlive": true
+      }
+    ],
+    "navTabs": [
+      {
+        "id": "chat",
+        "view": "chatlist",
+        "label": "会话",
+        "icon": "chat",
+        "iconActive": "chat",
+        "order": 10
+      },
+      {
+        "id": "contacts",
+        "view": "contacts",
+        "label": "通讯录",
+        "icon": "contacts",
+        "iconActive": "contacts",
+        "order": 20
+      },
+      {
+        "id": "moments",
+        "view": "moments",
+        "label": "朋友圈",
+        "icon": "moments",
+        "iconActive": "moments",
+        "order": 30
+      },
+      {
+        "id": "me",
+        "view": "me",
+        "label": "我",
+        "icon": "me",
+        "iconActive": "me",
+        "order": 40
+      }
+    ],
+    "stages": []
+  }
+}

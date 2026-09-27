@@ -1,0 +1,277 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-09-27T10:04:16Z",
+  "owner": "NianFengChat",
+  "repo": "NianFengChat-android-plugins",
+  "license": "Apache-2.0",
+  "note": "元数据全部内联：基座启动时只拉这一个文件即可掌握全部插件信息，不需要下载或执行任何插件。插件本体在 dist/<id>.js。",
+  "plugins": [
+    {
+      "id": "core.shell",
+      "name": "应用外壳",
+      "version": "0.1.0",
+      "versionCode": 1,
+      "kind": "core",
+      "entry": "main.js",
+      "apiVersion": 1,
+      "description": "底部导航栏 + 页面插槽。FengYu2 chatscreen 的底栏规格：70dp 高、圆角 35、左右 48 外边距、底部 20 外边距、阴影 8。",
+      "author": "NianFengChat",
+      "activation": [
+        "startup",
+        "view:app.shell"
+      ],
+      "deps": [],
+      "permissions": [],
+      "contributes": {
+        "views": [
+          {
+            "id": "app.shell",
+            "title": "外壳",
+            "keepAlive": true
+          }
+        ],
+        "navTabs": [
+          {
+            "id": "chat",
+            "view": "chatlist",
+            "label": "会话",
+            "icon": "chat",
+            "iconActive": "chat",
+            "order": 10
+          },
+          {
+            "id": "contacts",
+            "view": "contacts",
+            "label": "通讯录",
+            "icon": "contacts",
+            "iconActive": "contacts",
+            "order": 20
+          },
+          {
+            "id": "moments",
+            "view": "moments",
+            "label": "朋友圈",
+            "icon": "moments",
+            "iconActive": "moments",
+            "order": 30
+          },
+          {
+            "id": "me",
+            "view": "me",
+            "label": "我",
+            "icon": "me",
+            "iconActive": "me",
+            "order": 40
+          }
+        ],
+        "stages": []
+      },
+      "sha256": "76e4153c6f4662adce7eda686bfd0687b2a062e60c3f65dfd20becce70dd145e",
+      "size": 2615
+    },
+    {
+      "id": "feat.echo",
+      "name": "回声回复",
+      "version": "0.1.0",
+      "versionCode": 1,
+      "kind": "feat",
+      "entry": "main.js",
+      "apiVersion": 1,
+      "description": "挂在消息发送管线的 reply 阶段，产出一条回复。用来演示「多个插件参与同一次发送」。",
+      "author": "NianFengChat",
+      "activation": [
+        "pipeline:message.send"
+      ],
+      "deps": [],
+      "permissions": [],
+      "contributes": {
+        "views": [],
+        "navTabs": [],
+        "stages": [
+          {
+            "pipeline": "message.send",
+            "phase": "reply",
+            "handler": "onReply",
+            "order": 100
+          }
+        ]
+      },
+      "sha256": "188bdd2df99d08bbdd2cacc757aac8c4b09fe5a1365e501bbacbd061ba2e5386",
+      "size": 1442
+    },
+    {
+      "id": "ui.chat",
+      "name": "聊天页",
+      "version": "0.1.0",
+      "versionCode": 1,
+      "kind": "ui",
+      "entry": "main.js",
+      "apiVersion": 1,
+      "description": "消息流与输入框。输入文本由宿主缓冲，发送只跨一次边界。",
+      "author": "NianFengChat",
+      "activation": [
+        "view:chat"
+      ],
+      "deps": [],
+      "permissions": [],
+      "contributes": {
+        "views": [
+          {
+            "id": "chat",
+            "title": "聊天",
+            "keepAlive": true
+          }
+        ],
+        "navTabs": [],
+        "stages": []
+      },
+      "sha256": "ac0dad51fc9470f19c31e7661401cc8b1732aeba59a9c0a1a3e9632cf82b2879",
+      "size": 4607
+    },
+    {
+      "id": "ui.chatlist",
+      "name": "会话列表",
+      "version": "0.1.0",
+      "versionCode": 1,
+      "kind": "ui",
+      "entry": "main.js",
+      "apiVersion": 1,
+      "description": "会话列表页：头像、最后一条消息、未读角标、置顶态。点击进入聊天页。",
+      "author": "NianFengChat",
+      "activation": [
+        "view:chatlist"
+      ],
+      "deps": [],
+      "permissions": [],
+      "contributes": {
+        "views": [
+          {
+            "id": "chatlist",
+            "title": "会话",
+            "keepAlive": true
+          }
+        ],
+        "navTabs": [],
+        "stages": []
+      },
+      "sha256": "a49034aed9685019859ce558a80ba68d45cabd4b4909528625d9e45e37d457aa",
+      "size": 3565
+    },
+    {
+      "id": "ui.contacts",
+      "name": "通讯录",
+      "version": "0.1.0",
+      "versionCode": 1,
+      "kind": "ui",
+      "entry": "main.js",
+      "apiVersion": 1,
+      "description": "通讯录页：全部/群聊/私聊/星标 四个分栏 + 按首字母分组。",
+      "author": "NianFengChat",
+      "activation": [
+        "view:contacts"
+      ],
+      "deps": [],
+      "permissions": [],
+      "contributes": {
+        "views": [
+          {
+            "id": "contacts",
+            "title": "通讯录",
+            "keepAlive": true
+          }
+        ],
+        "navTabs": [],
+        "stages": []
+      },
+      "sha256": "358e5f4387ae6f9500217012148932cf0e1112c6c1d7571ee8d5b1f11a16fc39",
+      "size": 3451
+    },
+    {
+      "id": "ui.me",
+      "name": "我的",
+      "version": "0.1.0",
+      "versionCode": 1,
+      "kind": "ui",
+      "entry": "main.js",
+      "apiVersion": 1,
+      "description": "「我」页面：资料卡 + 设置入口。",
+      "author": "NianFengChat",
+      "activation": [
+        "view:me"
+      ],
+      "deps": [],
+      "permissions": [],
+      "contributes": {
+        "views": [
+          {
+            "id": "me",
+            "title": "我",
+            "keepAlive": true
+          }
+        ],
+        "navTabs": [],
+        "stages": []
+      },
+      "sha256": "143b23fe5cf9cbb102271c0ae99982e985da47755ff79c39950bf0a22413db9f",
+      "size": 2477
+    },
+    {
+      "id": "ui.moments",
+      "name": "朋友圈",
+      "version": "0.1.0",
+      "versionCode": 1,
+      "kind": "ui",
+      "entry": "main.js",
+      "apiVersion": 1,
+      "description": "朋友圈：动态卡片、点赞与评论计数。",
+      "author": "NianFengChat",
+      "activation": [
+        "view:moments"
+      ],
+      "deps": [],
+      "permissions": [],
+      "contributes": {
+        "views": [
+          {
+            "id": "moments",
+            "title": "朋友圈",
+            "keepAlive": true
+          }
+        ],
+        "navTabs": [],
+        "stages": []
+      },
+      "sha256": "3538037ea51ebd56526dae3ad6195c864dc40d6644a3afa14fd66dfd456e4594",
+      "size": 2569
+    },
+    {
+      "id": "ui.theme",
+      "name": "主题与配色",
+      "version": "0.1.0",
+      "versionCode": 1,
+      "kind": "ui",
+      "entry": "main.js",
+      "apiVersion": 1,
+      "description": "展示基座注入的设计令牌，验证插件取色体系是否生效。",
+      "author": "NianFengChat",
+      "activation": [
+        "view:theme"
+      ],
+      "deps": [],
+      "permissions": [],
+      "contributes": {
+        "views": [
+          {
+            "id": "theme",
+            "title": "主题与配色",
+            "keepAlive": false
+          }
+        ],
+        "navTabs": [],
+        "stages": []
+      },
+      "sha256": "148860326b951b9283e0dedbf49cba285023e80ce4237ae84ef384e530143595",
+      "size": 2051
+    }
+  ]
+}

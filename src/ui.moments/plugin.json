@@ -1,0 +1,27 @@
+{
+  "id": "ui.moments",
+  "name": "朋友圈",
+  "version": "0.1.0",
+  "versionCode": 1,
+  "kind": "ui",
+  "entry": "main.js",
+  "apiVersion": 1,
+  "description": "朋友圈：动态卡片、点赞与评论计数。",
+  "author": "NianFengChat",
+  "activation": [
+    "view:moments"
+  ],
+  "deps": [],
+  "permissions": [],
+  "contributes": {
+    "views": [
+      {
+        "id": "moments",
+        "title": "朋友圈",
+        "keepAlive": true
+      }
+    ],
+    "navTabs": [],
+    "stages": []
+  }
+}
