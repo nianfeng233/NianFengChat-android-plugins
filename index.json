@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-09-27T10:37:47Z",
+  "generatedAt": "2026-09-27T10:52:57Z",
   "owner": "NianFengChat",
   "repo": "NianFengChat-android-plugins",
   "license": "Apache-2.0",
@@ -148,8 +148,8 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "ac0dad51fc9470f19c31e7661401cc8b1732aeba59a9c0a1a3e9632cf82b2879",
-      "size": 4607
+      "sha256": "eab29861da1dab0361efb640a7109a08f258ca6a8938796ca4f36f96e24d752a",
+      "size": 4669
     },
     {
       "id": "ui.chatlist",

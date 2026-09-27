@@ -55,7 +55,7 @@ function bubble(m) {
     mine ? null : avatar(mine ? '' : '对', m.id % 6, 34),
     nf.ui.box(
       {
-        maxw: 268,
+        maxw: "74%",   // 相对宽度：换任何比例的屏幕都不会溢出
         bg: mine ? '@sakura' : '@whisper',
         r: 18,
         padh: 14,
