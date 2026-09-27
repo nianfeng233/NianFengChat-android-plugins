@@ -45,9 +45,9 @@ function navBar(tabs) {
       {
         fillw: 1,
         h: NAV_H,
-        bg: '@whisper',
-        r: NAV_RADIUS,
-        elev: 8,
+        bg: '@whisper',      // NavBarBackgroundColor
+        r: NAV_RADIUS,       // RoundedCornerShape(35dp)
+        elev: 8,             // NavBarShadowElevation，必须能真的画出来
         padl: 24,
         padr: 24,
         js: 'evenly',
