@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-09-28T15:11:36Z",
+  "generatedAt": "2026-09-28T15:26:39Z",
   "owner": "NianFengChat",
   "repo": "NianFengChat-android-plugins",
   "license": "Apache-2.0",
@@ -66,8 +66,8 @@
         ],
         "stages": []
       },
-      "sha256": "17d3d6aeeeb11578ce5d5e95bcec55818ef94440efe5545addad2bb227b278e7",
-      "size": 4850
+      "sha256": "b72253579020194cde45bf03b5b3d145777c710be4da083f56bbe6fb8779d1d6",
+      "size": 4768
     },
     {
       "id": "feat.demo",
