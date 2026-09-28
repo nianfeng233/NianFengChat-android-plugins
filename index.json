@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-09-27T11:26:31Z",
+  "generatedAt": "2026-09-28T14:48:09Z",
   "owner": "NianFengChat",
   "repo": "NianFengChat-android-plugins",
   "license": "Apache-2.0",
@@ -9,12 +9,12 @@
     {
       "id": "core.shell",
       "name": "应用外壳",
-      "version": "0.1.0",
-      "versionCode": 1,
+      "version": "0.4.2",
+      "versionCode": 9,
       "kind": "core",
       "entry": "main.js",
       "apiVersion": 1,
-      "description": "底部导航栏 + 页面插槽。FengYu2 chatscreen 的底栏规格：70dp 高、圆角 35、左右 48 外边距、底部 20 外边距、阴影 8。",
+      "description": "悬浮底部导航栏 + 页面插槽。四 tab 使用 Rounded 圆角面型图标（会话=圆气泡、发现=指南针）；选中态浅绿；底栏距底部 30dp；声明 dock:'bottom'，随可滚动页面上下拖动跟手收起/显现，松手补完；「会话」图标右上角小圆角标；二级页自动隐藏底栏。",
       "author": "NianFengChat",
       "activation": [
         "startup",
@@ -50,9 +50,9 @@
           {
             "id": "moments",
             "view": "moments",
-            "label": "朋友圈",
-            "icon": "moments",
-            "iconActive": "moments",
+            "label": "发现",
+            "icon": "discover",
+            "iconActive": "discover",
             "order": 30
           },
           {
@@ -66,18 +66,18 @@
         ],
         "stages": []
       },
-      "sha256": "ceef9d24fd3d5d91d4a1f2fd982ded3d52183cba19a6e723703f0eac2fce4619",
-      "size": 2971
+      "sha256": "b57d856ad61799b5ea05fde26c2f12b4a4b07f69fe12ffa8b65066f266a93059",
+      "size": 4835
     },
     {
       "id": "feat.demo",
       "name": "演示数据",
-      "version": "0.1.0",
-      "versionCode": 1,
+      "version": "0.3.0",
+      "versionCode": 3,
       "kind": "feat",
       "entry": "main.js",
       "apiVersion": 1,
-      "description": "启动时把演示内容（会话/联系人/朋友圈/资料）注入宿主数据层。基座本身不含任何内容，你看到的每一条数据都来自这里。",
+      "description": "启动时把演示内容注入宿主数据层。除精选示例外再生成 80 条演示会话，用于验证会话列表的窗口化（默认 30 条一页、滚到底自动加载、超上限滑窗丢弃）。",
       "author": "NianFengChat",
       "activation": [
         "startup"
@@ -89,8 +89,8 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "f941a46de3890a08013b5956f95ceecb727adc1c433aeaf11f39bab0ba9bdae4",
-      "size": 4968
+      "sha256": "d18f5e02e867f1d09879675a7c62a8138d87de0843153bb015feef9b8db5038c",
+      "size": 7152
     },
     {
       "id": "feat.echo",
@@ -125,12 +125,12 @@
     {
       "id": "ui.chat",
       "name": "聊天页",
-      "version": "0.1.0",
-      "versionCode": 1,
+      "version": "0.3.0",
+      "versionCode": 3,
       "kind": "ui",
       "entry": "main.js",
       "apiVersion": 1,
-      "description": "消息流与输入框。输入文本由宿主缓冲，发送只跨一次边界。",
+      "description": "消息流与输入框。输入文本由宿主缓冲，发送只跨一次边界；会话 id 随发送载荷上传，会话列表预览随之更新。顶栏与气泡头像复用会话对象里的同一份 avatar/seed。",
       "author": "NianFengChat",
       "activation": [
         "view:chat"
@@ -148,18 +148,18 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "eab29861da1dab0361efb640a7109a08f258ca6a8938796ca4f36f96e24d752a",
-      "size": 4669
+      "sha256": "3db26d49cf0ad4e1a8edb5cee3d6b0d70976582ccdfc624ae2ed99af1bcab93f",
+      "size": 5761
     },
     {
       "id": "ui.chatlist",
       "name": "会话列表",
-      "version": "0.1.0",
-      "versionCode": 1,
+      "version": "0.5.1",
+      "versionCode": 11,
       "kind": "ui",
       "entry": "main.js",
       "apiVersion": 1,
-      "description": "会话列表页：头像、最后一条消息、未读角标、置顶态。点击进入聊天页。",
+      "description": "会话列表页：用户顶栏 + 加大加号；无缝式整行列表（无间隙/无圆角/无分隔线，白底铺到屏幕底并从悬浮底栏下穿过）；置顶会话淡灰底；时间戳按今天/昨天/星期几/月日/年月日推导；未读为小圆/胶囊角标；左滑露出置顶/标未读/删除（超过 1/5 即自动展开）；长按在会话上方弹出带箭头的小浮窗。",
       "author": "NianFengChat",
       "activation": [
         "view:chatlist"
@@ -177,18 +177,18 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "a49034aed9685019859ce558a80ba68d45cabd4b4909528625d9e45e37d457aa",
-      "size": 3565
+      "sha256": "eae48d3cfd2eecd62042ca0731ce6bacbd1764b56ac1387d1d255c7e246c9b3c",
+      "size": 15543
     },
     {
       "id": "ui.contacts",
       "name": "通讯录",
-      "version": "0.1.0",
-      "versionCode": 1,
+      "version": "0.3.0",
+      "versionCode": 3,
       "kind": "ui",
       "entry": "main.js",
       "apiVersion": 1,
-      "description": "通讯录页：全部/群聊/私聊/星标 四个分栏 + 按首字母分组。",
+      "description": "通讯录页：全部/群聊/私聊/星标 四个分栏 + 按首字母分组。头像占位色改为由宿主按 seed 统一生成，插件不再自带调色板。",
       "author": "NianFengChat",
       "activation": [
         "view:contacts"
@@ -206,18 +206,18 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "358e5f4387ae6f9500217012148932cf0e1112c6c1d7571ee8d5b1f11a16fc39",
-      "size": 3451
+      "sha256": "2da8a86329700518e891d68dfdb40d6ad2e608bbfaa1062a730c8994831092a6",
+      "size": 3404
     },
     {
       "id": "ui.me",
       "name": "我的",
-      "version": "0.1.0",
-      "versionCode": 1,
+      "version": "0.3.1",
+      "versionCode": 4,
       "kind": "ui",
       "entry": "main.js",
       "apiVersion": 1,
-      "description": "「我」页面：资料卡 + 设置入口。",
+      "description": "「我」页面：资料卡 + 设置入口。资料卡直接读宿主注入的全局身份 ctx.data.me；页面统一白底、菜单从悬浮底栏下穿过，不留底部异色遮罩。",
       "author": "NianFengChat",
       "activation": [
         "view:me"
@@ -235,18 +235,18 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "143b23fe5cf9cbb102271c0ae99982e985da47755ff79c39950bf0a22413db9f",
-      "size": 2477
+      "sha256": "6cee3c6e7df9188ad1ff90e220576a1769a55db9422f86e5ac4006de542ffe09",
+      "size": 3165
     },
     {
       "id": "ui.moments",
       "name": "朋友圈",
-      "version": "0.1.0",
-      "versionCode": 1,
+      "version": "0.3.0",
+      "versionCode": 3,
       "kind": "ui",
       "entry": "main.js",
       "apiVersion": 1,
-      "description": "朋友圈：动态卡片、点赞与评论计数。",
+      "description": "朋友圈：动态卡片、点赞与评论计数。头像占位色改为由宿主按 seed 统一生成，插件不再自带调色板。",
       "author": "NianFengChat",
       "activation": [
         "view:moments"
@@ -264,8 +264,8 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "3538037ea51ebd56526dae3ad6195c864dc40d6644a3afa14fd66dfd456e4594",
-      "size": 2569
+      "sha256": "76d703c62015edba0298fb450608810f8cd05e639ddbdb01042e10d238f26f3e",
+      "size": 2410
     },
     {
       "id": "ui.theme",

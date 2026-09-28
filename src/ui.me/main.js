@@ -1,12 +1,13 @@
 // ui.me —— 我
+//
+// 资料卡的数据来自 ctx.data.me —— 与会话列表顶栏同一份「我是谁」。
+// 这里不定义任何头像/昵称变量，也不持有调色板：src 为空时由宿主按 seed 生成。
 'use strict';
 
-var AVATAR_COLORS = ['#F7BCC8', '#F2A9B9', '#E9A2B0', '#D8A6B2', '#C9A6B3', '#EFB9A8'];
-function avatarColor(seed) { return AVATAR_COLORS[Math.abs(seed | 0) % AVATAR_COLORS.length]; }
-function avatar(name, seed, size) {
-  return nf.ui.avatar(null, {
-    w: size, h: size, bg: avatarColor(seed),
-    s: name || '?', c: '@whisper', fs: Math.round(size * 0.42)
+function avatar(src, name, seed, size) {
+  return nf.ui.avatar(src || null, {
+    w: size, h: size, seed: seed | 0,
+    s: name || '?', c: '@whisper', fs: Math.round(size * 0.4)
   });
 }
 
@@ -19,13 +20,22 @@ var ENTRIES = [
   { id: 'settings', icon: 'settings',      label: '设置' }
 ];
 
+function statusText(p) {
+  var base = p.online ? '在线' : '离线';
+  return p.status ? (base + ' · ' + p.status) : base;
+}
+
 function profileCard(p) {
   return nf.ui.row(
     { fillw: 1, gap: 14, padh: 18, padv: 18, al: 'center', bg: '@whisper' },
-    avatar(p.name, p.seed, 62),
+    avatar(p.avatar, p.name, p.seed, 62),
     nf.ui.col({ gr: 1, gap: 5 },
       nf.ui.txt(p.name, { fs: 19, fw: 700, c: '@ink' }),
-      nf.ui.txt(p.signature, { fs: 12.5, c: '@inkFaint', max: 1 })
+      nf.ui.row({ gap: 6, al: 'center' },
+        nf.ui.box({ w: 7, h: 7, r: 4, bg: p.online ? '@success' : '@inkFaint' }),
+        nf.ui.txt(statusText(p), { fs: 11.5, c: '@inkFaint', max: 1 })
+      ),
+      nf.ui.txt(p.signature || '', { fs: 12.5, c: '@inkFaint', max: 1 })
     ),
     nf.ui.icon('chevron_right', { w: 20, c: '@inkFaint' })
   );
@@ -49,18 +59,20 @@ function entryRow(e) {
 module.exports = {
 
   render: function (ctx) {
-    var p = (ctx.data && ctx.data.profile) || { name: '我', signature: '', seed: 7 };
+    // me 是宿主注入的全局身份切片（与 chatlist 顶栏同源）；
+    // profile 是旧字段，仅作兼容回退。
+    var data = ctx.data || {};
+    var p = data.me || data.profile || { name: '我', signature: '', seed: 7, online: false, status: '' };
     var rows = [];
     for (var i = 0; i < ENTRIES.length; i++) { rows.push(entryRow(ENTRIES[i])); }
 
     return nf.ui.col(
-      { fillw: 1, fillh: 1, bg: '@paperSunken' },
+      { fillw: 1, fillh: 1, bg: '@whisper' },
       nf.ui.box({ fillw: 1, bg: '@whisper' }, profileCard(p)),
-      nf.ui.spacer(10),
-      nf.ui.col(
-        { fillw: 1, bg: '@whisper', r: 0, gr: 1, padb: 104 },
-        nf.ui.list({ fillw: 1, gr: 1 }, rows)
-      )
+      nf.ui.divider({ c: '@hairline', padh: 18 }),
+      // padb 交给列表当 contentPadding：菜单能滚到悬浮底栏上方，
+      // 列表本身从底栏下面穿过，不会在底部留出一块异色遮罩。
+      nf.ui.list({ fillw: 1, gr: 1, padt: 6, padb: 120 }, rows)
     );
   },
 

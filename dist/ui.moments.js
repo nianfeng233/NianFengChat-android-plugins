@@ -1,13 +1,11 @@
 // ui.moments —— 朋友圈
 'use strict';
 
-// 头像底色：仅在 logo 的粉/黑体系内取值
-var AVATAR_COLORS = ['#F7BCC8', '#F2A9B9', '#E9A2B0', '#D8A6B2', '#C9A6B3', '#EFB9A8'];
-function avatarColor(seed) { return AVATAR_COLORS[Math.abs(seed | 0) % AVATAR_COLORS.length]; }
+// 头像不在这里定义调色板：src 为空时由宿主按 seed 生成占位色。
 function avatar(name, seed, size) {
   return nf.ui.avatar(null, {
-    w: size, h: size, bg: avatarColor(seed),
-    s: name || '?', c: '@whisper', fs: Math.round(size * 0.42)
+    w: size, h: size, seed: seed | 0,
+    s: name || '?', c: '@whisper', fs: Math.round(size * 0.4)
   });
 }
 
@@ -60,7 +58,7 @@ module.exports = {
         nf.ui.title('朋友圈', { gr: 1 }),
         nf.ui.icon('camera', { w: 22, c: '@ink' })
       ),
-      nf.ui.list({ fillw: 1, gr: 1, padb: 104, padh: 14 }, cards)
+      nf.ui.list({ fillw: 1, gr: 1, padb: 120, padh: 14 }, cards)
     );
   },
 

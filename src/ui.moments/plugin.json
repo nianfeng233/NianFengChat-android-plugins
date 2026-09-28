@@ -1,12 +1,12 @@
 {
   "id": "ui.moments",
   "name": "朋友圈",
-  "version": "0.1.0",
-  "versionCode": 1,
+  "version": "0.3.0",
+  "versionCode": 3,
   "kind": "ui",
   "entry": "main.js",
   "apiVersion": 1,
-  "description": "朋友圈：动态卡片、点赞与评论计数。",
+  "description": "朋友圈：动态卡片、点赞与评论计数。头像占位色改为由宿主按 seed 统一生成，插件不再自带调色板。",
   "author": "NianFengChat",
   "activation": [
     "view:moments"

@@ -1,12 +1,12 @@
 {
   "id": "ui.contacts",
   "name": "通讯录",
-  "version": "0.1.0",
-  "versionCode": 1,
+  "version": "0.3.0",
+  "versionCode": 3,
   "kind": "ui",
   "entry": "main.js",
   "apiVersion": 1,
-  "description": "通讯录页：全部/群聊/私聊/星标 四个分栏 + 按首字母分组。",
+  "description": "通讯录页：全部/群聊/私聊/星标 四个分栏 + 按首字母分组。头像占位色改为由宿主按 seed 统一生成，插件不再自带调色板。",
   "author": "NianFengChat",
   "activation": [
     "view:contacts"

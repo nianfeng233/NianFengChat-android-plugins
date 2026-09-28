@@ -1,12 +1,12 @@
 {
   "id": "ui.chatlist",
   "name": "会话列表",
-  "version": "0.1.0",
-  "versionCode": 1,
+  "version": "0.5.1",
+  "versionCode": 11,
   "kind": "ui",
   "entry": "main.js",
   "apiVersion": 1,
-  "description": "会话列表页：头像、最后一条消息、未读角标、置顶态。点击进入聊天页。",
+  "description": "会话列表页：用户顶栏 + 加大加号；无缝式整行列表（无间隙/无圆角/无分隔线，白底铺到屏幕底并从悬浮底栏下穿过）；置顶会话淡灰底；时间戳按今天/昨天/星期几/月日/年月日推导；未读为小圆/胶囊角标；左滑露出置顶/标未读/删除（超过 1/5 即自动展开）；长按在会话上方弹出带箭头的小浮窗。",
   "author": "NianFengChat",
   "activation": [
     "view:chatlist"
@@ -25,3 +25,5 @@
     "stages": []
   }
 }
+
+

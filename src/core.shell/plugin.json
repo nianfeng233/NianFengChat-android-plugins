@@ -1,12 +1,12 @@
 {
   "id": "core.shell",
   "name": "应用外壳",
-  "version": "0.1.0",
-  "versionCode": 1,
+  "version": "0.4.2",
+  "versionCode": 9,
   "kind": "core",
   "entry": "main.js",
   "apiVersion": 1,
-  "description": "底部导航栏 + 页面插槽。FengYu2 chatscreen 的底栏规格：70dp 高、圆角 35、左右 48 外边距、底部 20 外边距、阴影 8。",
+  "description": "悬浮底部导航栏 + 页面插槽。四 tab 使用 Rounded 圆角面型图标（会话=圆气泡、发现=指南针）；选中态浅绿；底栏距底部 30dp；声明 dock:'bottom'，随可滚动页面上下拖动跟手收起/显现，松手补完；「会话」图标右上角小圆角标；二级页自动隐藏底栏。",
   "author": "NianFengChat",
   "activation": [
     "startup",
@@ -42,9 +42,9 @@
       {
         "id": "moments",
         "view": "moments",
-        "label": "朋友圈",
-        "icon": "moments",
-        "iconActive": "moments",
+        "label": "发现",
+        "icon": "discover",
+        "iconActive": "discover",
         "order": 30
       },
       {

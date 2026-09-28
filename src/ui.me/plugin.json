@@ -1,12 +1,12 @@
 {
   "id": "ui.me",
   "name": "我的",
-  "version": "0.1.0",
-  "versionCode": 1,
+  "version": "0.3.1",
+  "versionCode": 4,
   "kind": "ui",
   "entry": "main.js",
   "apiVersion": 1,
-  "description": "「我」页面：资料卡 + 设置入口。",
+  "description": "「我」页面：资料卡 + 设置入口。资料卡直接读宿主注入的全局身份 ctx.data.me；页面统一白底、菜单从悬浮底栏下穿过，不留底部异色遮罩。",
   "author": "NianFengChat",
   "activation": [
     "view:me"

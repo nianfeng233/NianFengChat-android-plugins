@@ -1,12 +1,12 @@
 {
   "id": "ui.chat",
   "name": "聊天页",
-  "version": "0.1.0",
-  "versionCode": 1,
+  "version": "0.3.0",
+  "versionCode": 3,
   "kind": "ui",
   "entry": "main.js",
   "apiVersion": 1,
-  "description": "消息流与输入框。输入文本由宿主缓冲，发送只跨一次边界。",
+  "description": "消息流与输入框。输入文本由宿主缓冲，发送只跨一次边界；会话 id 随发送载荷上传，会话列表预览随之更新。顶栏与气泡头像复用会话对象里的同一份 avatar/seed。",
   "author": "NianFengChat",
   "activation": [
     "view:chat"
@@ -25,3 +25,4 @@
     "stages": []
   }
 }
+
