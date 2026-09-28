@@ -1,6 +1,6 @@
-# NianFengChat-android-plugins
+# 念风Chat 插件仓库（NianFengChat-android-plugins）
 
-凝风聊天（NianFengChat-android）的**插件仓库**。基座本体不在这里。
+念风Chat（NianFengChat-android）的**插件仓库**。基座本体不在这里。
 协议：Apache-2.0。
 
 基座每次启动会拉取本仓库根目录的 `index.json`，比对版本后**增量**下载缺失/更新的
@@ -180,17 +180,17 @@ ctx.hasPage    // 是否会有页面树被塞进 slot
 
 ## 现有插件
 
-| id | 作用 | 说明 |
-|---|---|---|
-| `core.shell` | 应用外壳 | 浮动底栏 + 页面插槽 + 「会话」未读角标 |
-| `ui.chatlist` | 会话列表 | 用户顶栏 / 时间规则 / 未读 / 点击 / 长按操作单 / 左滑按钮 |
-| `ui.contacts` | 通讯录 | 四个分栏 + 按首字母分组 |
-| `ui.moments` | 朋友圈 | 动态卡片 / 点赞评论计数 |
-| `ui.me` | 我 | 资料卡（复用全局身份 `ctx.data.me`）+ 设置入口 |
-| `ui.chat` | 聊天页 | 消息流 + 输入框（发送热路径的样板） |
-| `ui.theme` | 主题与配色 | 逐个展示设计令牌，一眼验证配色链路 |
-| `feat.demo` | 演示数据 | 注入会话 / 联系人 / 朋友圈 / 全局用户资料（只存时间戳） |
-| `feat.echo` | 回声回复 | 无 UI，挂在 `message.send` 管线的 `reply` 阶段 |
+| id | 作用 | 说明 | 专属 README |
+|---|---|---|---|
+| `core.shell` | 应用外壳 | 浮动底栏 + 页面插槽 + 「会话」未读角标 | [README](src/core.shell/README.md) |
+| `ui.chatlist` | 会话列表 | 用户顶栏 / 时间规则 / 未读 / 点击 / 长按操作单 / 左滑按钮 | [README](src/ui.chatlist/README.md) |
+| `ui.contacts` | 通讯录 | 四个分栏 + 按首字母分组 | [README](src/ui.contacts/README.md) |
+| `ui.moments` | 朋友圈 | 动态卡片 / 点赞评论计数 | [README](src/ui.moments/README.md) |
+| `ui.me` | 我 | 资料卡（复用全局身份 `ctx.data.me`）+ 设置入口 | [README](src/ui.me/README.md) |
+| `ui.chat` | 聊天页 | 消息流 + 输入框（发送热路径的样板） | [README](src/ui.chat/README.md) |
+| `ui.theme` | 主题与配色 | 逐个展示设计令牌，一眼验证配色链路 | [README](src/ui.theme/README.md) |
+| `feat.demo` | 演示数据 | 注入会话 / 联系人 / 朋友圈 / 全局用户资料（只存时间戳） | [README](src/feat.demo/README.md) |
+| `feat.echo` | 回声回复 | 无 UI，挂在 `message.send` 管线的 `reply` 阶段 | [README](src/feat.echo/README.md) |
 
 ---
 
@@ -207,3 +207,4 @@ ctx.hasPage    // 是否会有页面树被塞进 slot
 ## 许可
 
 Apache-2.0。提交即表示同意以该协议分发。
+

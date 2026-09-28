@@ -2,7 +2,7 @@
 // core.shell —— 应用外壳
 //
 // 它只做两件事：
-//   1. 在页面之外画一条浮动底栏（视觉规格对齐 FengYu2 的 chatscreen）；
+//   1. 在页面之外画一条浮动底栏（视觉规格对齐 NianFengChat 的 chatscreen）；
 //   2. 在树里留一个 ['slot',{id:'page'}]，宿主会把当前页面插件产出的子树塞进来。
 //
 // 为什么要有 slot：底栏和页面是两个不同的插件。有了 slot，
@@ -10,7 +10,7 @@
 // ─────────────────────────────────────────────────────────────────────────
 'use strict';
 
-var NAV_H = 70;          // 底栏高度（dp）——完全对齐 FengYu2 的 NavBarHeight
+var NAV_H = 70;          // 底栏高度（dp）——完全对齐 NianFengChat 的 NavBarHeight
 var NAV_RADIUS = 35;     // 圆角
 var NAV_SIDE = 48;       // 左右外边距
 var NAV_BOTTOM = 30;     // 距屏幕底部（悬浮抬高一点，避开系统手势条）
@@ -61,7 +61,7 @@ function navBar(tabs, counts) {
   var items = [];
   for (var i = 0; i < tabs.length; i++) { items.push(navButton(tabs[i], counts)); }
   // 外层这层 Box 的 al:'bottom' 就是「把栏压到屏幕底部」的那一步，
-  // 对应 FengYu2 里的 .align(Alignment.BottomCenter)。
+  // 对应 NianFengChat 里的 .align(Alignment.BottomCenter)。
   // dock:'bottom' 声明它是「跟随上下滚动收起/显现的悬浮层」，
   // 具体收起比例由宿主根据当前页面的真实滚动量驱动。
   return nf.ui.box(
