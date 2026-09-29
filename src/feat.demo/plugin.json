@@ -1,12 +1,12 @@
 {
   "id": "feat.demo",
   "name": "演示数据",
-  "version": "0.3.0",
-  "versionCode": 3,
+  "version": "0.4.0",
+  "versionCode": 4,
   "kind": "feat",
   "entry": "main.js",
   "apiVersion": 1,
-  "description": "启动时把演示内容注入宿主数据层。除精选示例外再生成 80 条演示会话，用于验证会话列表的窗口化（默认 30 条一页、滚到底自动加载、超上限滑窗丢弃）。",
+  "description": "启动时把演示内容注入宿主数据层。会话继续生成 80 条用于验证窗口化；联系人补齐通讯录三分类所需 kind（private/group/channel）与排序用 initial，并加入两个群聊联系人样例。",
   "author": "NianFengChat",
   "activation": [
     "startup"

@@ -13,10 +13,14 @@
 ```
 index.json            元数据全内联（基座只拉这一个文件）
 dist/<id>.js          插件本体（单文件，一次 GET 装完）
-src/<id>/plugin.json  清单源
+src/<id>/plugin.json  清单源（`shared` 字段声明构建期要内联的共享片段）
 src/<id>/main.js      插件源码
+src/_shared/*.js      多插件共用的构建期片段（不会单独发成插件）
 tools/build_index.py  构建：src -> dist -> index.json
 ```
+
+`plugin.json` 里写 `"shared": ["_shared/ui.common.js"]` 后，构建脚本会把共享片段
+拼到该插件单文件顶部；基座完全不知情，部署路径与协议都不变。
 
 **改了 `src/` 之后必须跑一次构建脚本**，否则 `dist/` 与 `index.json` 全是旧的：
 
@@ -75,7 +79,7 @@ module.exports = {
 
 ### `nf.ui` 组件
 
-`col / row / box / scroll / list / swipe / txt / title / label / btn / chip /
+`col / row / box / scroll / list / swipe / drag / txt / title / label / btn / chip /
 icon / img / avatar / input / badge / msgdot / spacer / divider / empty / mk`
 
 `msgdot(n, {…})` 是全 App 统一的「消息红点」：外观和 `badge` 一样（个位正圆、两位数起胶囊），
@@ -102,6 +106,27 @@ nf.ui.swipe(
 
 同一时刻只允许一张卡片展开；点击别处会自动收回（宿主统一处理，插件无需关心）。
 
+`drag` 是可**纵向拖拽排序**的容器：子节点默认是拖拽项，也可只让某个手柄节点
+（`dhandle` 指向容器内的条目 key）发起拖拽。同 `dfleet` 的多个 `drag` 容器
+之间可以互相投放，例如通讯录里把联系人从「联系人」拖到别的分组：
+
+```js
+nf.ui.drag(
+  { fillw: 1, key: 'groups', id: 'groups', dfleet: 'groups',
+    dstart: 'onGroupDragStart', dend: 'onGroupDrop', dcancel: 'onGroupDragCancel' },
+  sectionNode1, sectionNode2          // 每个 section 的 key 登记为条目 key
+)
+
+// 子节点标记 ditem: 1 表示它是可拖拽项；分组标题用 dhandle 映射到外层
+// section key，这样整块 section 的坐标用于计算落点，标题只负责启动手势。
+{ tap: 'onToggle', long: 'onGroupMenu', dhandle: 'g:' + g.id }
+```
+
+拖拽期间宿主会：被拖项整块变灰、跟手浮层复用原节点渲染、实时画插入指示线；
+手指靠近当前滚动容器上下边缘时自动滚动，方便把条目拖到屏幕外的分组；
+松手后把 `{ id, key, from, to, index, fleet }` 交给 `dend`，
+没有有效目标则交给 `dcancel`。
+
 ### 通用属性（短键）
 
 | 键 | 含义 |
@@ -120,6 +145,13 @@ nf.ui.swipe(
 | `seed` | 头像占位色种子（`avatar` 的 `src` 为空时生效；调色板全局只在宿主里） |
 | `max` | 最大行数 |
 | `axis` | `scroll`/`list` 的方向，`'h'` 为横向 |
+| `ditem` | `1` = 该子节点是所在 `drag` 容器的可拖拽项 |
+| `dhandle` | 在该节点上启动拖拽，但映射到「外层容器里的另一个条目 key」（分组标题拖整块 section） |
+| `dkey` | 拖拽项/手柄的显式 key；默认用节点 `key` |
+| `dfleet` | drag 容器的投放编组；同 fleet 的容器之间可跨容器投放 |
+| `dstart` / `dend` / `dcancel` | 真正拖起 / 松手投放 / 无有效目标时触发一次；投放载荷含 `id/key/from/to/index/fleet` |
+| `ddrop` | 该节点整块作为某个 fleet 的兜底投放区（收起分组也能接收联系人） |
+| `dropid` | 兜底投放区的逻辑 id（默认节点 `id`） |
 
 可用图标名见基座 `ui/render/NfIcons.kt` 的 `names`。
 
@@ -183,8 +215,8 @@ ctx.hasPage    // 是否会有页面树被塞进 slot
 | id | 作用 | 说明 | 专属 README |
 |---|---|---|---|
 | `core.shell` | 应用外壳 | 浮动底栏 + 页面插槽 + 「会话」未读角标 | [README](src/core.shell/README.md) |
-| `ui.chatlist` | 会话列表 | 用户顶栏 / 时间规则 / 未读 / 点击 / 长按操作单 / 左滑按钮 | [README](src/ui.chatlist/README.md) |
-| `ui.contacts` | 通讯录 | 四个分栏 + 按首字母分组 | [README](src/ui.contacts/README.md) |
+| `ui.chatlist` | 会话列表 | 用户顶栏（与通讯录共用 `_shared/ui.common.js`）/ 时间规则 / 未读 / 点击 / 长按操作单 / 左滑按钮 | [README](src/ui.chatlist/README.md) |
+| `ui.contacts` | 通讯录 | 顶栏与搜索框与会话页共用；私聊/群聊/渠道三套独立分组；折叠、长按菜单、分组与联系人拖拽排序；拖联系人自动收起全部分组、顶部插入线、边缘自动滚动 | [README](src/ui.contacts/README.md) |
 | `ui.moments` | 朋友圈 | 动态卡片 / 点赞评论计数 | [README](src/ui.moments/README.md) |
 | `ui.me` | 我 | 资料卡（复用全局身份 `ctx.data.me`）+ 设置入口 | [README](src/ui.me/README.md) |
 | `ui.chat` | 聊天页 | 消息流 + 输入框（发送热路径的样板） | [README](src/ui.chat/README.md) |

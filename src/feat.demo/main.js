@@ -61,17 +61,22 @@ var CONVERSATIONS = [
   }
 })();
 
+// kind：通讯录顶部三分类（private / group / channel）。
+// initial：名称首字母，供通讯录分组内排序使用；这个值属于内容，
+// 由内容插件提供，基座只负责透传。
 var CONTACTS = [
-  { id: 'c1', name: '林清和', group: '置顶', starred: true,  signature: '在做一个很慢的东西', seed: 3 },
-  { id: 'c2', name: '顾南枝', group: 'A',    starred: true,  signature: '早睡',               seed: 5 },
-  { id: 'c3', name: '白露',   group: 'A',    starred: false, signature: '今天也要开心',        seed: 2 },
-  { id: 'c4', name: '沈砚',   group: 'B',    starred: false, signature: '写代码中，勿扰',      seed: 8 },
-  { id: 'c5', name: '岑野',   group: 'B',    starred: false, signature: '插件化信徒',          seed: 1 },
-  { id: 'c6', name: '苏晚',   group: 'C',    starred: false, signature: '晚安',               seed: 6 },
-  { id: 'c7', name: '祁越',   group: 'C',    starred: false, signature: '在部署',             seed: 4 },
-  { id: 'c8', name: '许知微', group: 'C',    starred: false, signature: '字体控',             seed: 9 },
-  { id: 'c9', name: '温叙',   group: 'D',    starred: false, signature: '潜水员',             seed: 10 },
-  { id: 'c10', name: '江照',  group: 'D',    starred: false, signature: '出差中',             seed: 11 }
+  { id: 'c1', name: '林清和', group: '联系人', starred: true,  signature: '在做一个很慢的东西', seed: 3,  kind: 'private', initial: 'L' },
+  { id: 'c2', name: '顾南枝', group: '联系人', starred: true,  signature: '早睡',               seed: 5,  kind: 'private', initial: 'G' },
+  { id: 'c3', name: '白露',   group: '联系人', starred: false, signature: '今天也要开心',        seed: 2,  kind: 'private', initial: 'B' },
+  { id: 'c4', name: '沈砚',   group: '联系人', starred: false, signature: '写代码中，勿扰',      seed: 8,  kind: 'private', initial: 'S' },
+  { id: 'c5', name: '岑野',   group: '联系人', starred: false, signature: '插件化信徒',          seed: 1,  kind: 'private', initial: 'C' },
+  { id: 'c6', name: '苏晚',   group: '联系人', starred: false, signature: '晚安',               seed: 6,  kind: 'private', initial: 'S' },
+  { id: 'c7', name: '祁越',   group: '联系人', starred: false, signature: '在部署',             seed: 4,  kind: 'private', initial: 'Q' },
+  { id: 'c8', name: '许知微', group: '联系人', starred: false, signature: '字体控',             seed: 9,  kind: 'private', initial: 'X' },
+  { id: 'c9', name: '温叙',   group: '联系人', starred: false, signature: '潜水员',             seed: 10, kind: 'private', initial: 'W' },
+  { id: 'c10', name: '江照',  group: '联系人', starred: false, signature: '出差中',             seed: 11, kind: 'private', initial: 'J' },
+  { id: 'gc1', name: '风语小组', group: '联系人', starred: false, signature: '5 人',             seed: 5,  kind: 'group',   initial: 'F' },
+  { id: 'gc2', name: '架构讨论组', group: '联系人', starred: false, signature: '8 人',           seed: 1,  kind: 'group',   initial: 'J' }
 ];
 
 var MOMENTS = [

@@ -1,12 +1,15 @@
 {
   "id": "ui.contacts",
   "name": "通讯录",
-  "version": "0.3.0",
-  "versionCode": 3,
+  "version": "0.5.1",
+  "versionCode": 6,
   "kind": "ui",
   "entry": "main.js",
   "apiVersion": 1,
-  "description": "通讯录页：全部/群聊/私聊/星标 四个分栏 + 按首字母分组。头像占位色改为由宿主按 seed 统一生成，插件不再自带调色板。",
+  "shared": [
+    "_shared/ui.common.js"
+  ],
+  "description": "通讯录第二版：与会话页共用顶栏，搜索框只显示「搜索」；私聊/群聊/渠道各自独立分组，初始分别为联系人/我的群聊/我的渠道；下划线式分类栏与分组列表连成整体；分组可折叠、长按菜单、拖拽排序；联系人跨分组拖拽时自动收起全部分组并提供顶部插入线与上下边缘自动滚动；新增大号居中新建分组浮层。",
   "author": "NianFengChat",
   "activation": [
     "view:contacts"

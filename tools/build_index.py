@@ -61,6 +61,8 @@ def main():
 
     plugins = []
     for pid in sorted(os.listdir(SRC)):
+        if pid.startswith("_"):
+            continue
         d = os.path.join(SRC, pid)
         mf = os.path.join(d, "plugin.json")
         js = os.path.join(d, "main.js")
@@ -72,7 +74,17 @@ def main():
         if meta.get("id") != pid:
             raise SystemExit("目录名与 manifest.id 不一致：%s vs %s" % (pid, meta.get("id")))
 
-        body = tidy(io.open(js, encoding="utf-8").read())
+        # 构建期共享片段：plugin.json 里的 shared 路径相对 src/。
+        # 它会先内联到 main.js 顶部，最终 dist 仍是单文件。
+        shared = meta.pop("shared", [])
+        parts = []
+        for rel in shared:
+            sp = os.path.join(SRC, rel)
+            if not os.path.isfile(sp):
+                raise SystemExit("插件 %s 声明的 shared 文件不存在：%s" % (pid, rel))
+            parts.append(tidy(io.open(sp, encoding="utf-8").read()))
+        parts.append(tidy(io.open(js, encoding="utf-8").read()))
+        body = tidy("\n\n".join(parts))
         dist_path = os.path.join(DIST, pid + ".js")
         io.open(dist_path, "w", encoding="utf-8", newline="\n").write(body)
 

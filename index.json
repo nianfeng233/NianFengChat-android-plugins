@@ -1,6 +1,6 @@
 {
   "schema": 1,
-  "generatedAt": "2026-09-28T15:26:39Z",
+  "generatedAt": "2026-09-29T12:09:52Z",
   "owner": "NianFengChat",
   "repo": "NianFengChat-android-plugins",
   "license": "Apache-2.0",
@@ -72,12 +72,12 @@
     {
       "id": "feat.demo",
       "name": "演示数据",
-      "version": "0.3.0",
-      "versionCode": 3,
+      "version": "0.4.0",
+      "versionCode": 4,
       "kind": "feat",
       "entry": "main.js",
       "apiVersion": 1,
-      "description": "启动时把演示内容注入宿主数据层。除精选示例外再生成 80 条演示会话，用于验证会话列表的窗口化（默认 30 条一页、滚到底自动加载、超上限滑窗丢弃）。",
+      "description": "启动时把演示内容注入宿主数据层。会话继续生成 80 条用于验证窗口化；联系人补齐通讯录三分类所需 kind（private/group/channel）与排序用 initial，并加入两个群聊联系人样例。",
       "author": "NianFengChat",
       "activation": [
         "startup"
@@ -89,8 +89,8 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "d18f5e02e867f1d09879675a7c62a8138d87de0843153bb015feef9b8db5038c",
-      "size": 7152
+      "sha256": "e0a650a1e274b319377ea6ee7c6cc636a9bcc2089c18ced70ac40481f83651ac",
+      "size": 8028
     },
     {
       "id": "feat.echo",
@@ -154,12 +154,12 @@
     {
       "id": "ui.chatlist",
       "name": "会话列表",
-      "version": "0.5.1",
-      "versionCode": 11,
+      "version": "0.5.3",
+      "versionCode": 13,
       "kind": "ui",
       "entry": "main.js",
       "apiVersion": 1,
-      "description": "会话列表页：用户顶栏 + 加大加号；无缝式整行列表（无间隙/无圆角/无分隔线，白底铺到屏幕底并从悬浮底栏下穿过）；置顶会话淡灰底；时间戳按今天/昨天/星期几/月日/年月日推导；未读为小圆/胶囊角标；左滑露出置顶/标未读/删除（超过 1/5 即自动展开）；长按在会话上方弹出带箭头的小浮窗。",
+      "description": "会话列表页：用户顶栏 + 加大加号；顶栏/搜索框/长按浮窗外提到 _shared/ui.common.js，与通讯录页共用同一份视觉；搜索框只显示「搜索」；无缝式整行列表（无间隙/无圆角/无分隔线，白底铺到屏幕底并从悬浮底栏下穿过）；置顶会话淡灰底；时间戳按今天/昨天/星期几/月日/年月日推导；未读为小圆/胶囊角标；左滑露出置顶/标未读/删除（超过 1/5 即自动展开）；长按在会话上方弹出带箭头的小浮窗。",
       "author": "NianFengChat",
       "activation": [
         "view:chatlist"
@@ -177,18 +177,18 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "eae48d3cfd2eecd62042ca0731ce6bacbd1764b56ac1387d1d255c7e246c9b3c",
-      "size": 15543
+      "sha256": "7b5ede208db3393d594db688e6f5e8db2863421b98d0d3ebdd7d40da07740c96",
+      "size": 18184
     },
     {
       "id": "ui.contacts",
       "name": "通讯录",
-      "version": "0.3.0",
-      "versionCode": 3,
+      "version": "0.5.1",
+      "versionCode": 6,
       "kind": "ui",
       "entry": "main.js",
       "apiVersion": 1,
-      "description": "通讯录页：全部/群聊/私聊/星标 四个分栏 + 按首字母分组。头像占位色改为由宿主按 seed 统一生成，插件不再自带调色板。",
+      "description": "通讯录第二版：与会话页共用顶栏，搜索框只显示「搜索」；私聊/群聊/渠道各自独立分组，初始分别为联系人/我的群聊/我的渠道；下划线式分类栏与分组列表连成整体；分组可折叠、长按菜单、拖拽排序；联系人跨分组拖拽时自动收起全部分组并提供顶部插入线与上下边缘自动滚动；新增大号居中新建分组浮层。",
       "author": "NianFengChat",
       "activation": [
         "view:contacts"
@@ -206,8 +206,8 @@
         "navTabs": [],
         "stages": []
       },
-      "sha256": "2da8a86329700518e891d68dfdb40d6ad2e608bbfaa1062a730c8994831092a6",
-      "size": 3404
+      "sha256": "ac16adb686f3356618ecc8460f11b043b4c7cabdeb1358a366d95c973411082d",
+      "size": 23108
     },
     {
       "id": "ui.me",

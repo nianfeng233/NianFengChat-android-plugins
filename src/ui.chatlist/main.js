@@ -62,46 +62,14 @@ function statusText(me) {
   return me.status ? (base + ' · ' + me.status) : base;
 }
 
-// ── 顶栏：用户头像 + 用户名 + 在线状态 + 加大号「+」──────────────────────
+// ── 顶栏 / 搜索框：与通讯录页共用 NFUI（构建期从 _shared/ui.common.js 内联）
+// 视觉规格从此只维护一份；这里只固定会话页的 handler 与搜索占位文案。
 function header(me) {
-  return nf.ui.row(
-    {
-      fillw: 1, gap: 12, padh: 18, padt: 12, padb: 10, al: 'center'
-    },
-    nf.ui.box(
-      { tap: 'onProfile', id: 'me' },
-      avatar(me.avatar, me.name, me.seed, 46)
-    ),
-    nf.ui.col(
-      { gr: 1, gap: 4 },
-      nf.ui.txt(me.name || '我', { fs: 18, fw: 700, c: '@ink', max: 1 }),
-      nf.ui.row(
-        { gap: 6, al: 'center' },
-        nf.ui.box({ w: 7, h: 7, r: 4, bg: me.online ? '@success' : '@inkFaint' }),
-        nf.ui.txt(statusText(me), { fs: 11.5, c: '@inkFaint', max: 1 })
-      )
-    ),
-    // 「+」就是一个干净的加号，不加任何圆形底/背景。
-    // 注意：图标可视尺寸 = 节点 w - 两侧 padding，pad 只用来撑热区；
-    // 固定规格，之后不再动：add_thin 是宿主自绘的细加号，
-    // w:46 + pad:2 → 加号本体约 25dp、笔画约 2.5dp。
-    nf.ui.icon('add_thin', { w: 46, c: '@ink', tap: 'onPlus', pad: 2 })
-  );
+  return NFUI.topBar(me, { profileTap: 'onProfile', plusTap: 'onPlus' });
 }
 
-// ── 搜索框：比原来更厚实（padv 8 → 13）─────────────────────────────────
 function searchBar() {
-  return nf.ui.row(
-    { fillw: 1, padh: 18, padt: 2, padb: 12, al: 'center' },
-    nf.ui.row(
-      {
-        fillw: 1, gap: 8, bg: '@paperSunken', r: 14,
-        padh: 14, padv: 13, al: 'center', tap: 'onSearch', id: 'search'
-      },
-      nf.ui.icon('search', { w: 17, c: '@inkFaint' }),
-      nf.ui.txt('搜索会话、联系人', { fs: 13.5, c: '@inkFaint' })
-    )
-  );
+  return NFUI.searchBar('搜索', 'onSearch');
 }
 
 // ── 右侧滑出的操作按钮 ────────────────────────────────────────────────
@@ -177,41 +145,8 @@ function menuPopup(menu) {
   defs.push({ label: menu.pinned ? '取消置顶' : '置顶', handler: 'onMenuPin' });
   if (menu.unread > 0) { defs.push({ label: '标为已读', handler: 'onMenuRead' }); }
   defs.push({ label: '删除', handler: 'onMenuDelete' });
-
-  var itemW = 78;
-  var menuW = itemW * defs.length;
-  var menuH = 36;
-  var arrowH = 10;
-  var gap = 4;
-  var vw = menu.vw || 390;
-
-  // 水平居中于被长按的那一行，并夹在页面内；垂直放到行上方
-  var mx = (menu.x || 0) + ((menu.w || 0) - menuW) / 2;
-  mx = Math.max(8, Math.min(mx, vw - menuW - 8));
-  var my = Math.max(8, (menu.y || 0) - menuH - arrowH - gap);
-
-  var items = [];
-  for (var i = 0; i < defs.length; i++) {
-    if (i > 0) { items.push(nf.ui.box({ w: 0.5, h: 18, bg: '#55FFFFFF' })); }
-    items.push(nf.ui.box(
-      { w: itemW, h: menuH, al: 'center', tap: defs[i].handler, id: 'menu-' + i },
-      nf.ui.txt(defs[i].label, { fs: 13, c: '@whisper', max: 1 })
-    ));
-  }
-
-  return nf.ui.box(
-    { fillw: 1, fillh: 1 },
-    // 透明遮罩：在「其他位置按下」立即关闭（不等到抬手）
-    nf.ui.box({ fillw: 1, fillh: 1, down: 'onMenuClose' }),
-    nf.ui.col(
-      { al: 'topstart', ox: mx, oy: my },
-      nf.ui.row({ bg: '#4C4C4C', r: 8, clip: true, elev: 8, al: 'center' }, items),
-      // 指向会话行的小三角：宽度和菜单一致，才会居中在菜单正下方
-      nf.ui.row({ w: menuW, js: 'center' },
-        nf.ui.icon('arrow_drop_down', { w: 22, c: '#4C4C4C', oy: -6 })
-      )
-    )
-  );
+  // 会话长按与通讯录分组长按共用 NFUI 的同一套浮窗视觉/定位。
+  return NFUI.popupMenu(menu, defs, { itemW: 78 });
 }
 
 // ── 数据查询（数据在 render 时缓存，handler 只读不写）──────────────────
